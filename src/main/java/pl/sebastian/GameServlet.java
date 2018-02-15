@@ -55,17 +55,20 @@ public class GameServlet extends HttpServlet {
             out.println("Podana dana musi być liczbą.");
             out.println("<a href=\"game\">Naciśnij, aby zagrać jeszcze raz</a>");
         } else {
+            count++;
             if (guess > number) {
-                out.println("Podana liczba jest za duża.");
+                out.println("Podana liczba jest za duża.<br>");
+                out.println("Liczba prób: " + count + "<br>");
                 printForm(out);
             } else if (guess < number){
-                out.println("Podana liczba jest za mała.");
+                out.println("Podana liczba jest za mała.<br>");
+                out.println("Liczba prób: " + count + "<br>");
                 printForm(out);
             } else {
-                out.println("Brawo! Liczba została odgadnięta.");
+                out.println("Brawo! Liczba została odgadnięta.<br>");
+                out.println("Liczba prób: " + count + "<br>");
                 out.println("<a href=\"game\">Naciśnij, aby zagrać jeszcze raz</a>");
             }
-            count++;
         }
     }
 
